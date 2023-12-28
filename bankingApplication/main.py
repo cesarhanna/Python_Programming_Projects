@@ -76,8 +76,7 @@ customer_data = []
 branch_data = []
 
 # Reading the csv files into a dataframe:
-customer_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                                 'Application in Python\\Data\\Customer_Data.csv')
+customer_csv_to_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
 
 def add_new_branch():
@@ -107,8 +106,7 @@ def add_new_branch():
 
 def assert_branch_data(column_name, br_data):
     # Reading the current csv into a dataframe, to check if values exist or not:
-    branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                                   'Application in Python\\Data\\Branch_Data.csv')
+    branch_csv_to_df = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
     # Check if the entered branch data exist in the dataframe ignoring the case-sensitive;
     # if it does, recursively enter the branch info again:
@@ -128,8 +126,7 @@ def add_new_customer():
     cust_branch = input('Enter branch name: ').upper()
 
     # Reading the current csv into a dataframe, to check if values exist or not:
-    branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                                   'Application in Python\\Data\\Branch_Data.csv')
+    branch_csv_to_df = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
     # Check if the branch exists in the dictionary or the dataframe:
     if cust_branch in branch_csv_to_df['Branch_name'].values:
@@ -149,8 +146,7 @@ def branch_to_dataframe(list_of_branches):
     branch_df = pd.DataFrame((k, *x) for k, v in list_of_branches.items() for x in v).reset_index(drop=True)
 
     # Exporting the dataframe to a .csv file on my local machine:
-    branch_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-                     'in Python\\Data\\Branch_Data.csv', header=False, mode='a', index=False)
+    branch_df.to_csv('C:\\****\\****\\Branch_Data.csv', header=False, mode='a', index=False)
 
 
 def customer_to_dataframe(list_of_customers):
@@ -158,8 +154,7 @@ def customer_to_dataframe(list_of_customers):
     customer_df = pd.DataFrame((k, *x) for k, v in list_of_customers.items() for x in v).reset_index(drop=True)
 
     # Exporting the dataframe to a .csv file on my local machine:
-    customer_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-                       'in Python\\Data\\Customer_Data.csv', header=False, mode='a', index=False)
+    customer_df.to_csv('C:\\****\\****\\Customer_Data.csv', header=False, mode='a', index=False)
 
 
 def transaction_to_dataframe(list_of_transactions):
@@ -167,8 +162,7 @@ def transaction_to_dataframe(list_of_transactions):
     transaction_df = pd.DataFrame((k, *x) for k, v in list_of_transactions.items() for x in v).reset_index(drop=True)
 
     # Exporting the dataframe to a .csv file on my local machine:
-    transaction_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                          'Application in Python\\Data\\Transaction_Data.csv', header=False, mode='a', index=False)
+    transaction_df.to_csv('C:\\****\\****\\Transaction_Data.csv', header=False, mode='a', index=False)
 
 
 def check_acc_for_deposit():
@@ -176,8 +170,7 @@ def check_acc_for_deposit():
     account_id = input('Enter account id: ')
 
     # Reading the current csv into a dataframe, to check if values exist or not:
-    cust_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                          'Application in Python\\Data\\Customer_Data.csv')
+    cust_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
     # Checks if the account number exists in the dataframe:
     if account_id in cust_df['Account_ID'].values:
@@ -202,8 +195,7 @@ def check_acc_for_withdrawal():
     account_id = input('Enter account id: ')
 
     # Read the updated csv into a dataframe:
-    cust_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                          'Application in Python\\Data\\Customer_Data.csv')
+    cust_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
     # Checks if the account number exists in either the dictionary or the dataframe:
     if account_id in cust_df['Account_ID'].values:
@@ -231,8 +223,7 @@ def print_cust():
     account_id = input('Enter account id: ')
 
     # Reading the current csv into a dataframe, to check if values exist or not:
-    cust_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                          'Application in Python\\Data\\Customer_Data.csv')
+    cust_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
     # Checks if the account number exists in the dataframe:
     if account_id in cust_df['Account_ID'].values:
@@ -248,8 +239,7 @@ def print_cust_statement():
     account_id = input('Enter account id: ')
 
     # Read the updated csv into a dataframe:
-    trans_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                           'Application in Python\\Data\\Transaction_Data.csv')
+    trans_df = pd.read_csv('C:\\****\\****\\Transaction_Data.csv')
 
     # Checks if the account number exists in the dataframe:
     if account_id in trans_df['Account_ID'].values:
@@ -265,8 +255,7 @@ def remove_branch():
     branch_name = input('Enter branch name: ').upper()
 
     # Reading the current csv into a dataframe, to check if values exist or not:
-    br_dataframe = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                               'Application in Python\\Data\\Branch_Data.csv')
+    br_dataframe = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
     # Check if branch exists in the dataframe:
     if branch_name in br_dataframe['Branch_name'].values:
@@ -287,8 +276,7 @@ def remove_customer():
     account_id = input('Enter account ID: ')
 
     # Check if account exists:
-    cust_dataframe = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                                 'Application in Python\\Data\\Customer_Data.csv')
+    cust_dataframe = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
     if account_id in cust_dataframe['Account_ID'].values:
 
         # Fetch the index of the account ID to be deleted:
@@ -315,14 +303,10 @@ def retrieve_branch_data():
         match choice:
             case 1:
                 # Retrieve the branch dataframe:
-                branch_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Branch_Data.csv')
+                branch_df = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
                 # Retrieve the customer dataframe; this will be used to rfelect the changes in the customer dataframe too:
-                customer_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Customer_Data.csv')
+                customer_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
                 # Enter the branch key and see if it exists in the dataframe:
                 branch_key = int(input('Enter branch key: '))
@@ -337,14 +321,10 @@ def retrieve_branch_data():
 
             case 2:
                 # Retrieve the branch dataframe:
-                branch_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Branch_Data.csv')
+                branch_df = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
                 # Retrieve the customer dataframe; this will be used to rfelect the changes in the customer dataframe too:
-                customer_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Customer_Data.csv')
+                customer_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
                 # Enter the branch key and see if it exists in the dataframe:
                 branch_key = int(input('Enter branch key: '))
@@ -359,14 +339,10 @@ def retrieve_branch_data():
 
             case 3:
                 # Retrieve the branch dataframe:
-                branch_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Branch_Data.csv')
+                branch_df = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
                 # Retrieve the customer dataframe; this will be used to rfelect the changes in the customer dataframe too:
-                customer_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Customer_Data.csv')
+                customer_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
 
                 # Enter the branch key and see if it exists in the dataframe:
                 branch_key = int(input('Enter branch key: '))
@@ -405,9 +381,7 @@ def retrieve_customer_data():
         match choice:
             case 1:
                 # Retrieve the dataframe:
-                customer_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Customer_Data.csv')
+                customer_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
                 # Enter the account ID and see if it exists in the dataframe:
                 account_ID = input('Enter account ID: ')
                 if account_ID in customer_df['Account_ID'].values:
@@ -421,9 +395,7 @@ def retrieve_customer_data():
 
             case 2:
                 # Retrieve the dataframe:
-                customer_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Customer_Data.csv')
+                customer_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
                 # Enter the account ID and see if it exists in the dataframe:
                 account_ID = input('Enter account ID: ')
                 if account_ID in customer_df['Account_ID'].values:
@@ -437,9 +409,7 @@ def retrieve_customer_data():
 
             case 3:
                 # Retrieve the dataframe:
-                customer_df = pd.read_csv(
-                    'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                    'Application in Python\\Data\\Customer_Data.csv')
+                customer_df = pd.read_csv('C:\\****\\****\\Customer_Data.csv')
                 # Enter the account ID and see if it exists in the dataframe:
                 account_ID = input('Enter account ID: ')
                 if account_ID in customer_df['Account_ID'].values:
@@ -477,8 +447,7 @@ class Bank:
         branch_data.append(data)
 
         # Reading the current csv into a dataframe, to check if values exist or not:
-        branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-                                       'Projects\\Bank Application in Python\\Data\\Branch_Data.csv')
+        branch_csv_to_df = pd.read_csv('C:\\****\\****\\Branch_Data.csv')
 
         try:
             branch_key = int(input('Enter key: '))
@@ -505,8 +474,7 @@ class Bank:
         br_dataframe_updated = br_dataframe.drop(idx, axis=0, inplace=False)
 
         # Write back the dataframe into the csv:
-        br_dataframe_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-                                    'Projects\\Bank Application in Python\\Data\\Branch_Data.csv', index=False)
+        br_dataframe_updated.to_csv('C:\\****\\****\\Branch_Data.csv', index=False)
 
         # Return to main menu:
         choose_options()
@@ -542,11 +510,9 @@ class Bank:
             customer_df_updated.replace(branch_info_in_cust_df, branch_info_updated, inplace=True)
 
         # Write the updated dataframes back to csv:
-        branch_df_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-                                 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv', index=False)
+        branch_df_updated.to_csv('C:\\****\\****\\Branch_Data.csv', index=False)
 
-        customer_df_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-                                      'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
+        customer_df_updated.to_csv('C:\\****\\****\\Customer_Data.csv', index=False)
 
         # Back to options menu:
         retrieve_branch_data()
@@ -622,8 +588,7 @@ class Branch:
         cust_dataframe_updated = cust_dataframe.drop(idx, axis=0, inplace=False)
 
         # Write back the dataframe into the csv:
-        cust_dataframe_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-                                      'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
+        cust_dataframe_updated.to_csv('C:\\****\\****\\Customer_Data.csv', index=False)
 
         # Return to main menu:
         choose_options()
@@ -654,8 +619,7 @@ class Branch:
             retrieve_customer_data()
 
         # Write the updated dataframe back to csv:
-        customer_df_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-                                   'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
+        customer_df_updated.to_csv('C:\\****\\****\\Customer_Data.csv', index=False)
 
         # Back to options menu:
         retrieve_customer_data()
@@ -685,8 +649,7 @@ class Customers:
         # Replace the old balance with the new calculated balance and export the new dataframe to csv:
         updated_customer_df = cust_df
         updated_customer_df.replace(balance_value, dep_value, inplace=True)
-        updated_customer_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                                   'Application in Python\\Data\\Customer_Data.csv', index=False)
+        updated_customer_df.to_csv('C:\\****\\****\\Customer_Data.csv', index=False)
 
         # Fetch the customer name with a specific account ID:
         idx = updated_customer_df.index[updated_customer_df['Account_ID'] == account_id].tolist()[0]
@@ -721,8 +684,7 @@ class Customers:
         # Replace the old balance with the new calculated balance and export the new dataframe to csv:
         updated_customer_df = cust_df
         updated_customer_df.replace(balance_value, wd_value, inplace=True)
-        updated_customer_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-                                   'Application in Python\\Data\\Customer_Data.csv', index=False)
+        updated_customer_df.to_csv('C:\\****\\****\\Customer_Data.csv', index=False)
 
         # Fetch the customer name with a specific account ID:
         idx = updated_customer_df.index[updated_customer_df['Account_ID'] == account_id].tolist()[0]
