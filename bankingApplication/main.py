@@ -179,7 +179,6 @@ def check_acc_for_deposit():
 
         # Getting the balance value located in the 4th column in the dataframe, where the transaction is taking place:
         row_idx = cust_df.iloc[index_of_cust_id]
-        #balance_value = float(row_idx.iloc[3])
         balance_value = float(row_idx.iloc[6])
 
         # Calling the make_deposit function to make a deposit:
