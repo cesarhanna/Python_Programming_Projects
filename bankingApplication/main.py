@@ -66,6 +66,12 @@ def create_user_account():
         # Storing the dataframe into a csv file:
         cred_df.to_csv('C:\\****\\****\\Sign_In_Doc.csv', header=False, mode='a', index=False)
 
+        print(Fore.CYAN + 'Account created successfuly!')
+        print(Fore.RESET)
+
+        # Go back to access choices:
+        app_access()
+
 
 def signing_in():
     print(Fore.BLUE + "\nLogin")
