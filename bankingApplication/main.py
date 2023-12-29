@@ -5,6 +5,95 @@ import datetime
 from colorama import Fore, Back, Style
 
 
+def app_access():
+    print('\t 1 - Create Account')
+    print('\t 2 - Login')
+    try:
+        access_choice = int(input('Please enter your choice from the menu above: '))
+        match access_choice:
+            case 1:
+                create_user_account()
+            case 2:
+                signing_in()
+    except ValueError:
+        print('Please either choose 1 or 2')
+
+
+def create_user_account():
+    # Initializing a dictionary that will hold the user credentials:
+    dict_of_user_account = {}
+
+    print(Fore.BLUE + '\nCreate User Account')
+    print(Fore.RESET)
+    # Enter the username:
+    username = input('Username: ')
+    # Enter the password:
+    password = input('Password: ')
+
+    # Read the csv file into a dataframe:
+    useraccount_df = pd.read_csv('C:\\****\\****\\Sign_In_Doc.csv')
+
+    # Check if the dataframe is empty, then save credentials:
+    if useraccount_df.empty == True:
+        # Appending the dictionary:
+        dict_of_user_account.update({username: password})
+
+        # Writing the credentials into a dataframe:
+        cred_df = pd.DataFrame(dict_of_user_account.items())
+
+        # Storing the dataframe into a csv file:
+        cred_df.to_csv('C:\\****\\****\\Sign_In_Doc.csv', header=False, mode='a', index=False)
+
+    # Check if the dataframe is not empty, then check if the credentials exist or not:
+    elif useraccount_df.empty == False:
+        for i in range(len(useraccount_df)):
+            if ((username != useraccount_df.iloc[i]['Username']) and (password != useraccount_df.iloc[i]['Password'])):
+                # if the credentials are not found, just continue looping:
+                continue
+            else:
+                print(Fore.RED + 'User account already exists')
+                print(Fore.RESET)
+
+                # Go back to access choices:
+                app_access()
+
+        # Appending the dictionary:
+        dict_of_user_account.update({username: password})
+
+        # Writing the credentials into a dataframe:
+        cred_df = cred_df = pd.DataFrame(dict_of_user_account.items())
+
+        # Storing the dataframe into a csv file:
+        cred_df.to_csv('C:\\****\\****\\Sign_In_Doc.csv', header=False, mode='a', index=False)
+
+
+def signing_in():
+    print(Fore.BLUE + "\nLogin")
+    print(Fore.RESET)
+    # Enter the username:
+    username = input('Username: ')
+    # Enter the password:
+    password = input('Password: ')
+
+    # Fetching credentials from dataframe:
+    cred_df = pd.read_csv('C:\\****\\****\\Sign_In_Doc.csv')
+
+    # Check if the dataframe is empty, then create an account, else check if the credentials are correct:
+    if cred_df.empty == True:
+        print('Please create an account first')
+        create_user_account()
+    else:
+        for i in range(len(cred_df)):
+            if ((username == cred_df.iloc[i]['Username']) and (password == cred_df.iloc[i]['Password'])):
+                print(Fore.CYAN + 'Login Successful!')
+                print(Fore.RESET)
+                print('\n')
+                customer_options()
+        print(Fore.RED + 'Login Failed. Try again')
+        print(Fore.RESET)
+        signing_in()
+
+
 def customer_options():
     print('WELCOME TO DKB')
     options_menu()
@@ -749,4 +838,4 @@ class Transaction:
 
 
 if __name__ == '__main__':
-    customer_options()
+    app_access()
