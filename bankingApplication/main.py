@@ -29,6 +29,9 @@ def app_access():
                 create_user_account()
             case 2:
                 signing_in()
+            case _:
+                print(Fore.RED + 'Invalid choice, please choose from the menu' + Fore.RESET)
+                app_access()
     except ValueError:
         print(Fore.RED + 'Please either choose 1 or 2' + Fore.RESET)
         app_access()
