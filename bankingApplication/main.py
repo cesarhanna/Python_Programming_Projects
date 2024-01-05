@@ -113,7 +113,7 @@ def signing_in():
 
 
 def customer_options():
-    print('WELCOME TO DKB')
+    print('WELCOME TO HBANK')
     options_menu()
     try:
         choose_options()
