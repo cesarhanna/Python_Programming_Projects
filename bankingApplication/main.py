@@ -272,6 +272,9 @@ def customer_to_dataframe(list_of_customers):
     # Reading the csv into a dataframe which will be passed to the update_database function:
     df_to_db = pd.read_csv('C:\\*****\\*****\\Customer_Data.csv')
 
+    # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in the database:
+    df_to_db['Telephone'] = df_to_db['Telephone'].astype('int64')
+
     # Identifying the table name in the database:
     db_table_name = 'customer_data'
 
@@ -295,6 +298,9 @@ def transaction_to_dataframe(list_of_transactions):
     transdf_to_db = pd.read_csv('C:\\*****\\*****\\Transaction_Data.csv')
     # 2. Reading the customer table:
     custdf_to_db = pd.read_csv('C:\\*****\\*****\\Customer_Data.csv')
+
+    # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in the database:
+    custdf_to_db['Telephone'] = custdf_to_db['Telephone'].astype('int64')
 
     # Identifying the table names in the database:
     # 1. Transaction table:
@@ -632,6 +638,9 @@ class Bank:
         br_dataframe_updated.to_csv('C:\\*****\\*****\\Branch_Data.csv', index=False)
         cust_dataframe_updated.to_csv('C:\\*****\\*****\\Customer_Data.csv', index=False)
 
+        # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in the database:
+        cust_dataframe_updated['Telephone'] = cust_dataframe_updated['Telephone'].astype('int64')
+
         # Identifying the table names in the database:
         # 1. Branch table:
         brcdb_table_name = 'branch_data'
@@ -689,6 +698,9 @@ class Bank:
         branch_df_updated.to_csv('C:\\*****\\*****\\Branch_Data.csv', index=False)
 
         customer_df_updated.to_csv('C:\\*****\\*****\\Customer_Data.csv', index=False)
+
+        # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in the database:
+        customer_df_updated['Telephone'] = customer_df_updated['Telephone'].astype('int64')
 
         # Update the branch and customer tables in the database:
         brchdb_table_name = 'branch_data'
@@ -770,6 +782,9 @@ class Branch:
         # Write back the dataframe into the csv:
         cust_dataframe_updated.to_csv('C:\\*****\\*****\\Customer_Data.csv', index=False)
 
+        # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in the database:
+        cust_dataframe_updated['Telephone'] = cust_dataframe_updated['Telephone'].astype('int64')
+
         # Identifying the table name in the database:
         custdb_table_name = 'customer_data'
 
@@ -816,6 +831,9 @@ class Branch:
 
         # Write the updated dataframe back to csv:
         customer_df_updated.to_csv('C:\\*****\\*****\\Customer_Data.csv', index=False)
+
+        # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in the database:
+        customer_df_updated['Telephone'] = customer_df_updated['Telephone'].astype('int64')
 
         # Update the customer table in the database:
         custdb_table_name = 'customer_data'
