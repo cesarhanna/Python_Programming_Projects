@@ -663,11 +663,20 @@ class Bank:
         # Check if the column id passed is the branch name, and make it upper:
         if col_idx == 1:
             while len(br_name := input('Enter new branch information: ').upper()) != 3:
-                print(Fore.RED + 'Number of characters must be 3' + Fore.RESET)
-            branch_df_updated.replace(branch_info, br_name.upper(), inplace=True)
-        else:
-            branch_df_updated.replace(branch_info, input('Enter new branch information: '), inplace=True)
+                print(Fore.RED + 'Number of characters for branch name must be 3' + Fore.RESET)
+            branch_df_updated.at[br_idx, "Branch_name"] = br_name
 
+        # Check if the column id passed is the branch country, if so edit it:
+        if col_idx == 2:
+            while (branch_info_updated := input('Enter new branch information: ')) == "":
+                print(Fore.RED + 'Country name cannot be empty' + Fore.RESET)
+            branch_df_updated.at[br_idx, "Branch_country"] = branch_info_updated
+
+        # Check if the column id passed is the branch address, if so edit it:
+        if col_idx == 3:
+            while (branch_info_updated := input('Enter new branch information: ')) == "":
+                print(Fore.RED + 'Branch address cannot be empty' + Fore.RESET)
+            branch_df_updated.at[br_idx, "Branch_address"] = branch_info_updated
         # Update the branch name in the customer dataframe:
         # 1. Retrieve the branch name based on the row and column id:
         branch_index = branch_df_updated.iloc[br_idx]
@@ -704,7 +713,9 @@ class Branch:
         # Creating the key of the customer dictionary element:
         cust_key = cust_branch
 
-        cust_name = input('Enter customer name: ')
+        # Enter the customer name and make sure it is not empty:
+        while (cust_name := input('Enter customer name: ')) == "":
+            print(Fore.RED + 'Name cannot be empty' + Fore.RESET)
 
         # Creating a unique identified for the customer in hexadecimal format:
         acc_id = uuid.uuid4().hex
@@ -784,9 +795,21 @@ class Branch:
                         len(cust_telephone) > 13):
                     print(Fore.RED + 'Telephone number format is wrong' + Fore.RESET)
                 int(cust_telephone)
+                # Using the .replace method, since .at is throwing a warning due to a bug in Python:
                 customer_df_updated.replace(customer_info, cust_telephone, inplace=True)
-            else:
-                customer_df_updated.replace(customer_info, input('Enter new customer information: '), inplace=True)
+              
+            # Check if the column id passed is the customer name, if so edit it:
+            if col_idx == 1:
+                while (cust_updated_info := input('Enter new customer information: ')) == "":
+                    print(Fore.RED + 'Name cannot be empty' + Fore.RESET)
+                customer_df_updated.at[cust_idx, "Customer_name"] = cust_updated_info
+
+            # Check if the column id passed is the customer address, if so edit it:
+            if col_idx == 4:
+                while (cust_updated_info := input('Enter new customer information: ')) == "":
+                    print(Fore.RED + 'Address cannot be empty' + Fore.RESET)
+                customer_df_updated.at[cust_idx, "Customer_address"] = cust_updated_info
+              
         except ValueError:
             print(Fore.RED + 'Telephone number format is wrong' + Fore.RESET)
             retrieve_customer_data()
