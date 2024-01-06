@@ -5,6 +5,7 @@ import datetime
 from colorama import Fore, Back, Style
 import psycopg2
 from sqlalchemy import create_engine
+import re
 
 
 # Establishing the connection to the Database:
@@ -733,11 +734,9 @@ class Branch:
         acc_id = uuid.uuid4().hex
 
         # Entering the date of birth in the right format:
-        try:
-            cust_DOB = datetime.datetime.strptime(input('Enter customer date of birth: '), '%d/%m/%Y')
-        except ValueError:
-            print(Fore.RED + 'Enter the date in this format d/m/YYYY' + Fore.RESET)
-            add_new_customer()
+        pattern_to_match = re.compile('^\d{2}/\d{2}/\d{4}$')
+        while (matched_pattern := re.match(pattern_to_match, cust_DOB := input('Enter customer date of birth: '))) == None:
+            print(Fore.RED + 'Date of birth format is wrong. Enter the date in this format d/m/YYYY' + Fore.RESET)
 
         # Entering the customer's address:
         cust_address = input('Enter customer address: ')
