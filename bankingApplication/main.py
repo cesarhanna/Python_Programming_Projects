@@ -753,7 +753,11 @@ class Branch:
             add_new_customer()
 
         if (acc_id not in list_of_customers.values()) or (acc_id not in customer_csv_to_df['Account_ID'].values):
-            balance = float(input('Enter initial transaction: '))
+            while (balance := input('Enter initial transaction: ')) == "" :
+                print(Fore.RED + 'Transaction cannot be empty' + Fore.RESET)
+
+            # Converting the balance to float:
+            float(balance)
 
             # Appending the data into the data list:
             data.append(cust_name)
