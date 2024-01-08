@@ -726,32 +726,36 @@ class Branch:
         # Creating the key of the customer dictionary element:
         cust_key = cust_branch
 
-        # Enter the customer name and make sure it is not empty:
-        while (cust_name := input('Enter customer name: ')) == "":
-            print(Fore.RED + 'Name cannot be empty' + Fore.RESET)
-
         # Creating a unique identified for the customer in hexadecimal format:
         acc_id = uuid.uuid4().hex
 
-        # Entering the date of birth in the right format:
-        pattern_to_match = re.compile('^\d{2}/\d{2}/\d{4}$')
-        while (matched_pattern := re.match(pattern_to_match, cust_DOB := input('Enter customer date of birth: '))) == None:
-            print(Fore.RED + 'Date of birth format is wrong. Enter the date in this format d/m/YYYY' + Fore.RESET)
-
-        # Entering the customer's address:
-        cust_address = input('Enter customer address: ')
-
-        # Entering the customer's telephone in the right format:
-        try:
-            while (len(cust_telephone := input('Enter customer telephone number: ')) < 10) or (len(cust_telephone) > 13):
-                print(Fore.RED + 'Telephone number format is wrong' + Fore.RESET)
-            # Making sure the telephone number contains only integers:
-            int(cust_telephone)
-        except ValueError:
-            print(Fore.RED + 'Telephone number must not contain letters. Please enter the right data' + Fore.RESET)
-            add_new_customer()
-
+        # Check if the account ID exists or not, if not, create the customer:
         if (acc_id not in list_of_customers.values()) or (acc_id not in customer_csv_to_df['Account_ID'].values):
+
+            # Enter the customer name and make sure it is not empty:
+            while (cust_name := input('Enter customer name: ')) == "":
+                print(Fore.RED + 'Name cannot be empty' + Fore.RESET)
+
+            # Entering the date of birth in the right format:
+            pattern_to_match = re.compile('^\d{2}/\d{2}/\d{4}$')
+            while (matched_pattern := re.match(pattern_to_match, cust_DOB := input('Enter customer date of birth: '))) == None:
+                print(Fore.RED + 'Date of birth format is wrong. Enter the date in this format dd/mm/YYYY' + Fore.RESET)
+
+            # Entering the customer's address:
+            while (cust_address := input('Enter customer address: ')) == "":
+                print(Fore.RED + 'Customer address cannot be empty' + Fore.RESET)
+
+            # Entering the customer's telephone in the right format:
+            try:
+                while (len(cust_telephone := input('Enter customer telephone number: ')) < 10) or (len(cust_telephone) > 13):
+                    print(Fore.RED + 'Telephone number format is wrong' + Fore.RESET)
+                # Making sure the telephone number contains only integers:
+                int(cust_telephone)
+            except ValueError:
+                print(Fore.RED + 'Telephone number must not contain letters. Please enter the right data' + Fore.RESET)
+                add_new_customer()
+
+            # Entering the transaction which is mandatory:
             while (balance := input('Enter initial transaction: ')) == "" :
                 print(Fore.RED + 'Transaction cannot be empty' + Fore.RESET)
 
@@ -761,7 +765,7 @@ class Branch:
             # Appending the data into the data list:
             data.append(cust_name)
             data.append(acc_id)
-            data.append(cust_DOB.date())
+            data.append(cust_DOB)
             data.append(cust_address)
             data.append(cust_telephone)
             data.append(balance)
@@ -769,13 +773,11 @@ class Branch:
             # Updating the values list with the new customer data:
             list_of_customers.setdefault(cust_key, []).append(data)
 
-            print(list_of_customers)
-
             # Convert the customer dictionary into a dataframe:
             customer_to_dataframe(list_of_customers)
         else:
-            print(Fore.RED + 'Account can not be created as it already exists' + Fore.RESET)
-            Branch.add_customer(cust_branch, list_of_customers)
+            print(Fore.RED + 'Account can not be created as it already exists. Please try again' + Fore.RESET)
+            Branch.add_customer(cust_branch, list_of_cus
 
     @staticmethod
     def remove_customer_from_branch(idx, cust_dataframe):
