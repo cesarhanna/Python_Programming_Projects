@@ -777,7 +777,7 @@ class Branch:
             customer_to_dataframe(list_of_customers)
         else:
             print(Fore.RED + 'Account can not be created as it already exists. Please try again' + Fore.RESET)
-            Branch.add_customer(cust_branch, list_of_cus
+            Branch.add_customer(cust_branch, list_of_customers) 
 
     @staticmethod
     def remove_customer_from_branch(idx, cust_dataframe):
