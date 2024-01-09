@@ -677,13 +677,13 @@ class Bank:
             branch_df_updated.at[br_idx, "Branch_name"] = br_name
 
         # Check if the column id passed is the branch country, if so edit it:
-        if col_idx == 2:
+        elif col_idx == 2:
             while (branch_info_updated := input('Enter new branch information: ')) == "":
                 print(Fore.RED + 'Country name cannot be empty' + Fore.RESET)
             branch_df_updated.at[br_idx, "Branch_country"] = branch_info_updated
 
         # Check if the column id passed is the branch address, if so edit it:
-        if col_idx == 3:
+        elif col_idx == 3:
             while (branch_info_updated := input('Enter new branch information: ')) == "":
                 print(Fore.RED + 'Branch address cannot be empty' + Fore.RESET)
             branch_df_updated.at[br_idx, "Branch_address"] = branch_info_updated
@@ -819,13 +819,13 @@ class Branch:
                 customer_df_updated.replace(customer_info, cust_telephone, inplace=True)
               
             # Check if the column id passed is the customer name, if so edit it:
-            if col_idx == 1:
+            elif col_idx == 1:
                 while (cust_updated_info := input('Enter new customer information: ')) == "":
                     print(Fore.RED + 'Name cannot be empty' + Fore.RESET)
                 customer_df_updated.at[cust_idx, "Customer_name"] = cust_updated_info
 
             # Check if the column id passed is the customer address, if so edit it:
-            if col_idx == 4:
+            elif col_idx == 4:
                 while (cust_updated_info := input('Enter new customer information: ')) == "":
                     print(Fore.RED + 'Address cannot be empty' + Fore.RESET)
                 customer_df_updated.at[cust_idx, "Customer_address"] = cust_updated_info
