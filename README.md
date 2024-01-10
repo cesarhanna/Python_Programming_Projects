@@ -1,4 +1,4 @@
-This program written in Python entail the following features:
+This program written in Python entails the following features:
 1. Adding a new bank branch
 2. Adding customers to branch
 3. Making deposits and withdrawals
