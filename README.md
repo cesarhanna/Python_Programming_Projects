@@ -9,7 +9,7 @@ This program written in Python entails the following features:
 8. Removing a customer from a branch
 
 The program is designed as follows:
-- The user can create credentials that will be stored in a csv file, in which they will be fetched when a user tries to login to authenticate access
+- The user can create credentials that will be stored in a csv file, in which the user will be authenticated against when trying to login
 - All data for branches, customers and transactions are stored in csv files, and copied to postgres database
 - Any edit or delete in branch data, will be reflected in all relevant tables
 - Transactions will be stored in a transaction table and update the customer balance accordingly
