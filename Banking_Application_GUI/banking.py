@@ -43,14 +43,14 @@ branch_data = []
 
 # Establishing the connection to the Database:
 conn = psycopg2.connect(host='127.0.0.1',
-                        port=5432,
+                        port=******,
                         database='postgres',
                         user='postgres',
-                        password='Trust_no1',
+                        password='**************',
                         connect_timeout=3)
 
 # Creating the engine that will be responsible to execute sql queries in the Database:
-engine = create_engine('postgresql://postgres:Trust_no1@127.0.0.1:5432/postgres')
+engine = create_engine('postgresql://postgres:************@127.0.0.1:*******/postgres')
 
 
 def update_database(dataframe, table):
@@ -314,8 +314,6 @@ def create_customer_data(optionmenu_choice, customer_name, customer_dob, custome
     branch_key = optionmenu_choice
 
     # Reading the customer dataframe into a csv:
-    # customer_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv')
     customer_csv_to_df = pd.read_csv('Customer_Data.csv')
 
     if optionmenu_choice == "":
@@ -379,8 +377,6 @@ def assert_create_customer_data(customer_df, customer_name, customer_dob, custom
 
 def create_deposit_data(account_id, deposit_amount):
     # Reading the current csv into a dataframe, to check if values exist or not:
-    # cust_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-    # 'Application in Python\\Data\\Customer_Data.csv')
     cust_df = pd.read_csv('Customer_Data.csv')
 
     # Checks if the account number exists in the dataframe:
@@ -406,8 +402,6 @@ def create_deposit_data(account_id, deposit_amount):
 
 def create_withdrawal_data(account_id, withdrawal_amount):
     # Reading the current csv into a dataframe, to check if values exist or not:
-    # cust_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-    # 'Application in Python\\Data\\Customer_Data.csv')
     cust_df = pd.read_csv('Customer_Data.csv')
 
     # Checks if the account number exists in the dataframe:
@@ -459,15 +453,9 @@ def print_customer_statement(account_id):
 
 def edit_branch_data(radiobutton_choice, optionmenu_choice, new_data):
     # Retrieve the branch dataframe:
-    # branch_df = pd.read_csv(
-    # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-    # 'Application in Python\\Data\\Branch_Data.csv')
     branch_df = pd.read_csv('Branch_Data.csv')
 
     # Retrieve the customer dataframe; this will be used to reflect the changes in the customer dataframe too:
-    # customer_df = pd.read_csv(
-    # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-    # 'Application in Python\\Data\\Customer_Data.csv')
     customer_df = pd.read_csv('Customer_Data.csv')
 
     if new_data == "":
@@ -510,9 +498,6 @@ def edit_branch_data(radiobutton_choice, optionmenu_choice, new_data):
 
 def edit_customer_data(radiobutton_choice, entry_choice, new_data):
     # Retrieve the customer dataframe:
-    # customer_df = pd.read_csv(
-    # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-    # 'Application in Python\\Data\\Customer_Data.csv')
     customer_df = pd.read_csv('Customer_Data.csv')
 
     # Convert the Telephone column to bigint, in order to compare the values to the tel number passed to the assert
@@ -601,14 +586,9 @@ def remove_branch_data(optionmenu_choice):
 
     else:
         # Reading the current csv into a dataframe, to check if values exist or not:
-        # br_dataframe = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-        # 'Application in Python\\Data\\Branch_Data.csv')
         br_dataframe = pd.read_csv('Branch_Data.csv')
 
         # Retrieve the customer dataframe; this will be used to reflect the changes in the customer dataframe too:
-        # customer_df = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-        # 'Application in Python\\Data\\Customer_Data.csv')
         customer_df = pd.read_csv('Customer_Data.csv')
 
         # Fetch the index of the branch to be deleted:
@@ -621,8 +601,6 @@ def remove_branch_data(optionmenu_choice):
 
 def remove_customer_data(account_id):
     # Retrieving the customer dataframe:
-    # cust_dataframe = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-    # 'Application in Python\\Data\\Customer_Data.csv')
     cust_dataframe = pd.read_csv('Customer_Data.csv')
 
     # Make sure an account id is selected:
@@ -645,7 +623,7 @@ def create_branch_widgets():
     for widget in frame3.winfo_children():
         widget.destroy()
 
-    # # Initializing the branch key variable:
+    # Initializing the branch key variable:
     branch_key_value = customtkinter.StringVar(value='0')
 
     frame3_brc_titlelabel = customtkinter.CTkLabel(frame3, text="Create Branch", font=("Ariel", 16, "bold"),
@@ -685,8 +663,6 @@ def create_branch_widgets():
     frame3_brc_button.pack(pady=20)
 
     # Make the treeview visible:
-    # branch_dataframe = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv')
     branch_dataframe = pd.read_csv('Branch_Data.csv')
     create_treeview(branch_dataframe)
 
@@ -712,8 +688,6 @@ def create_customer_widgets():
 
     # Initializing the values of the option menu:
     # 1. Read the csv into a dataframe:
-    # branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv')
     branch_csv_to_df = pd.read_csv('Branch_Data.csv')
 
     # 2. Initialize an empty list that will hold the values (branches):
@@ -777,8 +751,6 @@ def create_customer_widgets():
     frame3_brc_button.pack(pady=20)
 
     # Make the treeview visible:
-    # customer_dataframe = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv')
     customer_dataframe = pd.read_csv('Customer_Data.csv')
     create_treeview(customer_dataframe)
 
@@ -919,8 +891,6 @@ def create_edit_branch_widgets():
 
     # Initializing the values of the option menu:
     # 1. Read the csv into a dataframe:
-    # branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv')
     branch_csv_to_df = pd.read_csv('Branch_Data.csv')
 
     # 2. Initialize an empty list that will hold the values (branches):
@@ -1001,8 +971,6 @@ def create_edit_customer_widgets():
     frame3_ecs_button1.pack(pady=20)
 
     # Make the treeview visible:
-    # customer_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv')
     customer_csv_to_df = pd.read_csv('Customer_Data.csv')
     create_treeview(customer_csv_to_df)
 
@@ -1020,8 +988,6 @@ def create_remove_branch_widgets():
 
     # Initializing the values of the option menu:
     # 1. Read the csv into a dataframe:
-    # branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv')
     branch_csv_to_df = pd.read_csv('Branch_Data.csv')
 
     # 2. Initialize an empty list that will hold the values (branches):
@@ -1066,8 +1032,6 @@ def create_remove_customer_widgets():
     frame3_rcs_button1.pack(pady=20)
 
     # Make the treeview visible:
-    # customer_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv')
     customer_csv_to_df = pd.read_csv('Customer_Data.csv')
     create_treeview(customer_csv_to_df)
 
@@ -1090,15 +1054,9 @@ class Bank:
         branch_df = pd.DataFrame((k, *x) for k, v in list_of_branches.items() for x in v).reset_index(drop=True)
 
         # Exporting the dataframe to a .csv file on my local machine:
-        # branch_df.to_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Branch_Data.csv', header=False, mode='a', index=False)
         branch_df.to_csv('Branch_Data.csv', header=False, mode='a', index=False)
 
         # Reading the csv into a dataframe which will be passed to the update_database function:
-        # df_to_db = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Branch_Data.csv')
         df_to_db = pd.read_csv('Branch_Data.csv')
 
         # Identifying the table name in the database:
@@ -1108,9 +1066,6 @@ class Bank:
         update_database(df_to_db, db_table_name)
 
         # Update the treeview:
-        # df_branch_to_treeview = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Branch_Data.csv')
         df_branch_to_treeview = pd.read_csv('Branch_Data.csv')
         create_treeview(df_branch_to_treeview)
 
@@ -1154,12 +1109,8 @@ class Bank:
             customer_df_updated.replace(branch_info_in_cust_df, branch_info_updated, inplace=True)
 
         # Write the updated dataframes back to csv:
-        # branch_df_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-        # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv', index=False)
         branch_df_updated.to_csv('Branch_Data.csv', index=False)
 
-        # customer_df_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-        # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
         customer_df_updated.to_csv('Customer_Data.csv', index=False)
 
         # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in
@@ -1191,11 +1142,7 @@ class Bank:
         cust_dataframe_updated = cust_dataframe.drop(brc_name)
 
         # Write back the dataframes into the csv:
-        # br_dataframe_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-        # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv', index=False)
         br_dataframe_updated.to_csv('Branch_Data.csv', index=False)
-        # cust_dataframe_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-        # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
         cust_dataframe_updated.to_csv('Customer_Data.csv', index=False)
 
         # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in
@@ -1251,15 +1198,9 @@ class Branch:
         customer_df = pd.DataFrame((k, *x) for k, v in list_of_customers.items() for x in v).reset_index(drop=True)
 
         # Exporting the dataframe to a .csv file on my local machine:
-        # customer_df.to_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Customer_Data.csv', header=False, mode='a', index=False)
         customer_df.to_csv('Customer_Data.csv', header=False, mode='a', index=False)
 
         # Reading the csv into a dataframe which will be passed to the update_database function:
-        # df_to_db = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Customer_Data.csv')
         df_to_db = pd.read_csv('Customer_Data.csv')
 
         # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in
@@ -1273,9 +1214,6 @@ class Branch:
         update_database(df_to_db, db_table_name)
 
         # Update the treeview:
-        # df_customer_to_treeview = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Customer_Data.csv')
         df_customer_to_treeview = pd.read_csv('Customer_Data.csv')
         create_treeview(df_customer_to_treeview)
 
@@ -1307,8 +1245,6 @@ class Branch:
             messagebox.showerror("Data Error", "Telephone format is wrong")
 
         # Write the updated dataframe back to csv:
-        # customer_df_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-        # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
         customer_df_updated.to_csv('Customer_Data.csv', index=False)
 
         # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in
@@ -1334,8 +1270,6 @@ class Branch:
         cust_dataframe_updated = cust_dataframe.drop(idx, axis=0, inplace=False)
 
         # Write back the dataframe into the csv:
-        # cust_dataframe_updated.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-        # 'Projects\\Bank Application in Python\\Data\\Customer_Data.csv', index=False)
         cust_dataframe_updated.to_csv('Customer_Data.csv', index=False)
 
         # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in
@@ -1374,8 +1308,6 @@ class Customers:
         # Replace the old balance with the new calculated balance and export the new dataframe to csv:
         updated_customer_df = cust_df
         updated_customer_df.replace(balance_value, dep_value, inplace=True)
-        # updated_customer_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-        # 'Application in Python\\Data\\Customer_Data.csv', index=False)
         updated_customer_df.to_csv('Customer_Data.csv', index=False)
 
         # Fetch the customer name with a specific account ID:
@@ -1400,8 +1332,6 @@ class Customers:
         # Replace the old balance with the new calculated balance and export the new dataframe to csv:
         updated_customer_df = cust_df
         updated_customer_df.replace(balance_value, wd_value, inplace=True)
-        # updated_customer_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-        # 'Application in Python\\Data\\Customer_Data.csv', index=False)
         updated_customer_df.to_csv('Customer_Data.csv', index=False)
 
         # Fetch the customer name with a specific account ID:
@@ -1455,8 +1385,6 @@ class Transaction:
             columns={0: 'Account_ID', 1: 'Customer_name', 2: 'Deposit', 3: 'Withdrawal', 4: 'Timestamp'}, inplace=True)
 
         # Exporting the dataframe to a csv file:
-        # transaction_df.to_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank '
-        # 'Application in Python\\Data\\Transaction_Data.csv', header=True, mode='w', index=False)
         transaction_df.to_csv('Transaction_Data.csv', header=True, mode='w', index=False)
 
         if deposit is None:
@@ -1476,14 +1404,8 @@ class Transaction:
 
         # Reading the csv into a dataframe which will be passed to update the database:
         # 1. Reading the transaction table:
-        # transdf_to_db = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Transaction_Data.csv')
         transdf_to_db = pd.read_csv('Transaction_Data.csv')
         # 2. Reading the customer table:
-        # custdf_to_db = pd.read_csv(
-        # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-        # 'in Python\\Data\\Customer_Data.csv')
         custdf_to_db = pd.read_csv('Customer_Data.csv')
 
         # Converting the Telephone column to bigint, so it reflects accordingly everytime the table gets replaced in
