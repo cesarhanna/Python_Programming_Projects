@@ -204,9 +204,19 @@ def options_menu_frame(parent, color):
 
 
 def create_treeview(dataframe):
+    # Creating a horizontal scrollbar for the Treeview:
+    # 1. Create the scrollbar object:
+    # horizontal_scrollbar = customtkinter.CTkScrollbar(frame3, orientation="horizontal", command=df_treeview.xview)
+    horizontal_scrollbar = customtkinter.CTkScrollbar(frame3, orientation="horizontal", width=20)
+    # 2. Pack the scrollbar:
+    horizontal_scrollbar.pack(side="bottom", fill="x")
+    
     # Create the treeview:
     df_treeview = ttk.Treeview(frame3, height=50)
     df_treeview.pack(pady=(50, 0), anchor=customtkinter.S, fill="x")
+
+    # 3. Then, configure the Treeview to use the scrollbar:
+    horizontal_scrollbar.configure(command=df_treeview.xview)
 
     # Create the stype of the treeview:
     tree_style = ttk.Style()
