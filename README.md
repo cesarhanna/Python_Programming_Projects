@@ -14,7 +14,5 @@ The program is designed as follows:
 - Any edit or delete in branch data, will be reflected in all relevant tables
 - Transactions will be stored in a transaction table and update the customer balance accordingly
 - The printing feature reads from the database table into a pandas dataframe, and the latter will be queried accordingly
-
-This program does not use any GUI, at least at the moment, however, this will be done in a future release.
     
     
