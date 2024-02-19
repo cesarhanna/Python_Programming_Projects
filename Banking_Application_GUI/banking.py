@@ -187,8 +187,6 @@ def options_menu_frame(parent, color):
                                             command=reset)
     reset_program.pack(side="left", pady=(0, 200), padx=(20, 80))
 
-    frames_list.append(frame2)
-
     global frame3
     frame3 = customtkinter.CTkFrame(parent, fg_color="silver", corner_radius=0, border_width=1,
                                     border_color="black")
