@@ -71,9 +71,6 @@ def update_trans_database(dataframe, table):
 
 def login():
     # Fetching credentials from dataframe:
-    # cred_df = pd.read_csv(
-    # 'C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing Projects\\Bank Application '
-    # 'in Python\\Data\\Sign_In_Doc.csv')
     cred_df = pd.read_csv('Sign_In_Doc.csv')
 
     for i in range(len(cred_df)):
@@ -271,8 +268,6 @@ def create_branch_data(branch_name, branch_country, branch_address, branch_key):
     dict_of_branches = {}
 
     # Reading the branch dataframe into a csv:
-    # branch_csv_to_df = pd.read_csv('C:\\Users\\cesar\\OneDrive\\Documents\\Cesar documents\\Programing '
-    # 'Projects\\Bank Application in Python\\Data\\Branch_Data.csv')
     branch_csv_to_df = pd.read_csv('Branch_Data.csv')
 
     # Match the branch name to a regex to make sure it does not contain digits:
